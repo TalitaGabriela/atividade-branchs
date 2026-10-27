@@ -16,8 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const formContato = document.getElementById("form-contato");
+  const formContatoErro = document.getElementById("form-contato-erro");
+
   formContato.addEventListener("submit", (evento) => {
     evento.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formContato.checkValidity() || !regexEmail.test(email)) {
+      formContatoErro.textContent = "Preencha todos os campos corretamente.";
+      return;
+    }
+
+    formContatoErro.textContent = "";
     alert("Mensagem enviada com sucesso!");
     formContato.reset();
   });
