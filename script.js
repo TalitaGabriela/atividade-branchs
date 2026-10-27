@@ -9,4 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     contador++;
     valor.textContent = contador;
   });
+
+  const botaoModoEscuro = document.getElementById("modo-escuro-botao");
+  botaoModoEscuro.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
 });
