@@ -21,4 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Mensagem enviada com sucesso!");
     formContato.reset();
   });
+
+  const formTarefa = document.getElementById("form-tarefa");
+  const tarefaInput = document.getElementById("tarefa-input");
+  const listaTarefas = document.getElementById("lista-tarefas");
+
+  formTarefa.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    if (tarefaInput.value.trim() === "") return;
+
+    const item = document.createElement("li");
+    item.textContent = tarefaInput.value;
+    listaTarefas.appendChild(item);
+
+    tarefaInput.value = "";
+  });
 });
