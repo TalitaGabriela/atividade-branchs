@@ -36,4 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tarefaInput.value = "";
   });
+
+  const tarefaBusca = document.getElementById("tarefa-busca");
+  tarefaBusca.addEventListener("input", () => {
+    const termo = tarefaBusca.value.toLowerCase();
+    listaTarefas.querySelectorAll("li").forEach((item) => {
+      const corresponde = item.textContent.toLowerCase().includes(termo);
+      item.style.display = corresponde ? "" : "none";
+    });
+  });
 });
